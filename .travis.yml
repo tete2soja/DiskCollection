@@ -41,5 +41,6 @@ script:
   - ionic platform remove android
   - ionic platform add android
   - ionic resources --icon
+  - ionic resources --splash
   - chmod +x hooks/after_prepare/010_add_platform_class.js
   - ionic build android
