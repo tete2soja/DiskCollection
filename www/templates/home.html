@@ -1,0 +1,26 @@
+﻿<ion-view view-title="Home">    
+    <ion-content>
+        <p>
+            Welcome to this fabulous application !
+        </p>
+        <div class="md-padding actionButtons" layout="column">
+            <md-fab-speed-dial md-open="scope.isOpen" md-direction="up" class="md-fling md-fab-bottom-right md-hover-full speed-dial">
+                <md-fab-trigger>
+                    <md-button aria-label="Menu" class="md-fab">
+                        <span class="ion-plus" ></span>
+                    </md-button>
+                </md-fab-trigger>
+                <md-fab-actions>
+                    <md-button class="md-fab md-raised md-mini md-primary material-icons" href="#/app/add_bluray">
+                        <span class="menu-icon ion-ios-film"></span>
+                        <md-tooltip md-direction="left" md-visible="tooltipVisible">Movie</md-tooltip>
+                    </md-button>
+                    <md-button class="md-fab md-raised md-mini md-primary material-icons" href="#/app/add_music">
+                        <span class="menu-icon ion-music-note"></span>
+                        <md-tooltip md-direction="left" md-visible="tooltipVisible">Music</md-tooltip>
+                    </md-button>
+                </md-fab-actions>
+            </md-fab-speed-dial>
+        </div>
+    </ion-content>
+</ion-view>

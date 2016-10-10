@@ -39,4 +39,15 @@ angular.module('starter.controllers', [])
             $scope.closeLogin();
         }, 1000);
     };
-});
+})
+
+
+.controller('HomeCtrl', function ($scope, $location) {
+    this.topDirections = ['left', 'up'];
+    this.bottomDirections = ['down', 'right'];
+    this.isOpen = false;
+    this.availableModes = ['md-fling', 'md-scale'];
+    this.selectedMode = 'md-fling';
+    this.availableDirections = ['up', 'down', 'left', 'right'];
+    this.selectedDirection = 'up';
+});;

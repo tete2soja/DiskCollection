@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers'])
+angular.module('starter', ['ionic', 'starter.controllers', 'ngAria', 'ngMaterial'])
 
 .run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
@@ -28,8 +28,17 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       .state('app', {
           url: '/app',
           abstract: true,
-          templateUrl: 'templates/menu.html',
-          controller: 'AppCtrl'
+          templateUrl: 'templates/menu.html'
+      })
+
+      .state('app.home', {
+          url: '/home',
+          controller: 'HomeCtrl',
+          views: {
+              'menuContent': {
+                  templateUrl: 'templates/home.html'
+              }
+          }
       })
 
     .state('app.bluray', {
@@ -37,6 +46,15 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         views: {
             'menuContent': {
                 templateUrl: 'templates/bluray.html'
+            }
+        }
+    })
+
+    .state('app.add_bluray', {
+        url: '/add_bluray',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/add_bluray.html'
             }
         }
     })
@@ -49,6 +67,15 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             }
         }
     })
+
+    .state('app.add_music', {
+        url: '/add_music',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/add_music.html'
+            }
+        }
+    })
       .state('app.settings', {
           url: '/settings',
           views: {
@@ -58,5 +85,5 @@ angular.module('starter', ['ionic', 'starter.controllers'])
           }
       });
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/app/bluray');
+    $urlRouterProvider.otherwise('/app/home');
 });

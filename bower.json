@@ -2,6 +2,12 @@
   "name": "Disk Collection",
   "private": true,
   "devDependencies": {
-    "ionic": "driftyco/ionic-bower#1.2.4"
+    "ionic": "driftyco/ionic-bower#1.2.4",
+    "angular-material": "^1.1.1",
+    "angular-aria": "^1.5.8"
+  },
+  "resolutions": {
+    "angular": ">= 1.0.8",
+    "angular-animate": "^1.4.8"
   }
 }
