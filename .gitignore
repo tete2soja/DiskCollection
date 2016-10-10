@@ -301,3 +301,11 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+# Ionic
+# =========================
+bld/
+platforms/
+plugins/
+resources/android/
+resources/ios/
