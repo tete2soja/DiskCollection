@@ -52,6 +52,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngAria', 'ngMaterial
 
     .state('app.add_bluray', {
         url: '/add_bluray',
+        controller: 'AddBRCtrl',
         views: {
             'menuContent': {
                 templateUrl: 'templates/add_bluray.html'

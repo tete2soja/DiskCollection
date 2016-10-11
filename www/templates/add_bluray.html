@@ -1,5 +1,22 @@
 ﻿<ion-view view-title="Add new movie">
-    <ion-content>
-        <h1>Add new BR</h1>
+    <ion-content ng-controller="AddBRCtrl">
+        <form ng-submit="findByName()">
+            <div class="list">
+                <label class="item item-input">
+                    <span class="input-label">Name</span>
+                    <input type="text" ng-model="data.search">
+                </label>
+                <label class="item">
+                    <button class="button button-block button-positive" type="submit">Search</button>
+                </label>
+            </div>
+        </form>
+
+        <div class="list">
+            <a ng-repeat="dvd in dvds" class="item item-thumbnail-left" href="#/app/">
+                <img ng-src="{{dvd.cover}}">
+                <h2>{{dvd.titres.fr}}</h2>
+            </a>
+        </div>
     </ion-content>
 </ion-view>

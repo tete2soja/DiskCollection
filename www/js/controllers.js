@@ -41,6 +41,19 @@ angular.module('starter.controllers', [])
     };
 })
 
+.controller('AddBRCtrl', function ($scope, $http) {
+    $scope.data = {};
+
+    $scope.findByName = function () {
+       $http.get("http://www.dvdfr.com/api/search.php?title=" + $scope.data.search)
+            .then(function (result) {
+                $x2js = new X2JS();
+                $jsonObj = $x2js.xml_str2json(result.data);
+                console.log(result.data);
+                $scope.dvds = $jsonObj.dvds.dvd;
+            });
+    };
+})
 
 .controller('HomeCtrl', function ($scope, $location) {
     this.topDirections = ['left', 'up'];
@@ -50,4 +63,4 @@ angular.module('starter.controllers', [])
     this.selectedMode = 'md-fling';
     this.availableDirections = ['up', 'down', 'left', 'right'];
     this.selectedDirection = 'up';
-});;
+});
