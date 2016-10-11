@@ -22,6 +22,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngAria', 'ngMaterial
     });
 })
 
+.filter("trust", ['$sce', function($sce) {
+    return function(htmlCode){
+        return $sce.trustAsHtml(htmlCode);
+    }}])
+
 .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
 
@@ -56,6 +61,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngAria', 'ngMaterial
         views: {
             'menuContent': {
                 templateUrl: 'templates/add_bluray.html'
+            }
+        }
+    })
+
+    .state('app.movie', {
+        url: '/movie/:movieID',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/movie.html',
+                controller: 'MovieCtrl'
             }
         }
     })

@@ -45,14 +45,36 @@ angular.module('starter.controllers', [])
     $scope.data = {};
 
     $scope.findByName = function () {
-       $http.get("http://www.dvdfr.com/api/search.php?title=" + $scope.data.search)
-            .then(function (result) {
-                $x2js = new X2JS();
-                $jsonObj = $x2js.xml_str2json(result.data);
-                console.log(result.data);
-                $scope.dvds = $jsonObj.dvds.dvd;
-            });
+        $http.get("http://www.dvdfr.com/api/search.php?title=" + $scope.data.search + "&produit=" + $scope.data.type)
+             .then(function (result) {
+                 $x2js = new X2JS();
+                 $jsonObj = $x2js.xml_str2json(result.data);
+                 console.log(result.data);
+                 $scope.dvds = $jsonObj.dvds.dvd;
+             });
     };
+})
+
+.controller('MovieCtrl', function ($scope, $http, $stateParams, $rootScope, $window) {
+    $http.get("http://www.dvdfr.com/api/dvd.php?id=" + $stateParams.movieID)
+    //$http.get("http://172.22.0.10/xml.xml")
+         .then(function (result) {
+             $x2js = new X2JS();
+             $jsonObj = $x2js.xml_str2json(result.data);
+             console.log($jsonObj);
+             $scope.data = $jsonObj.dvd;
+             $scope.data.acteurs = "";
+             for (i = 0; i < $jsonObj.dvd.stars.star.length; i++) {
+                 switch ($jsonObj.dvd.stars.star[i]._type) {
+                     case 'Réalisateur':
+                         $scope.data.realisateur = $jsonObj.dvd.stars.star[i].__text;
+                     case 'Acteur':
+                         $scope.data.acteurs += $jsonObj.dvd.stars.star[i].__text + '<br/>';
+                 }
+                 console.log(i + " - " + $jsonObj.dvd.stars.star[i]._type);
+             }
+         });
+
 })
 
 .controller('HomeCtrl', function ($scope, $location) {

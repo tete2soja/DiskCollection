@@ -6,6 +6,16 @@
                     <span class="input-label">Name</span>
                     <input type="text" ng-model="data.search">
                 </label>
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        Slect media type
+                    </div>
+                    <select ng-model="data.type">
+                        <option value="DVD">DVD</option>
+                        <option selected value="BRD">Blu-Ray</option>
+                        <option value="UMD">UMD</option>
+                    </select>
+                </label>
                 <label class="item">
                     <button class="button button-block button-positive" type="submit">Search</button>
                 </label>
@@ -13,9 +23,9 @@
         </form>
 
         <div class="list">
-            <a ng-repeat="dvd in dvds" class="item item-thumbnail-left" href="#/app/">
+            <a ng-repeat="dvd in dvds" class="item item-thumbnail-left" href="#/app/movie/{{dvd.id}}">
                 <img ng-src="{{dvd.cover}}">
-                <h2>{{dvd.titres.fr}}</h2>
+                <p>{{dvd.titres.fr}}</p>
             </a>
         </div>
     </ion-content>
