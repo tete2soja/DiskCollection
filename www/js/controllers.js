@@ -73,6 +73,10 @@ angular.module('starter.controllers', [])
                  }
                  console.log(i + " - " + $jsonObj.dvd.stars.star[i]._type);
              }
+             $http.get("http://www.omdbapi.com/?t=" + $jsonObj.dvd.titres.fr + "&y=&plot=short&r=json")
+                .then(function (result) {
+                    $scope.imdb = result.data;
+                });
          });
 
 })

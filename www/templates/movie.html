@@ -2,10 +2,12 @@
     <ion-content>
         <div class="row">
             <div class="col col-50">
-                <img src="{{data.cover}}" style="height: 100%; width: 100%; object-fit: contain" />
+                <img src="{{imdb.Poster}}" style="height: 100%; width: 100%; object-fit: contain" />
             </div>
             <div class="col col-50">
                 <h3>{{data.titres.fr}}</h3>
+                <p>Note iMDB : {{imdb.imdbRating}}</p>
+                <p>Note Metacritic : {{imdb.Metascore}}</p>
             </div>
         </div>
         <h4>Synopsis</h4>
@@ -18,7 +20,7 @@
                 <p>Réalisateur</p>
             </div>
             <div class="col col-50">
-                <p>{{data.realisateur}}</p>
+                <p>{{imdb.Director}}</p>
             </div>
         </div>
         <div class="row">
@@ -51,6 +53,14 @@
             </div>
             <div class="col col-50">
                 <p>{{data.studio}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-50">
+                <p>Genres</p>
+            </div>
+            <div class="col col-50">
+                <p>{{imdb.Genre}}</p>
             </div>
         </div>
     </ion-content>
